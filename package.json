@@ -1,0 +1,92 @@
+{
+  "name": "react-antd-ts-template",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michalochman/react-antd-ts-template"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.0.6",
+    "@antv/data-set": "^0.11.4",
+    "@casl/ability": "^4.0.8",
+    "@casl/react": "^2.1.0",
+    "@sentry/browser": "^5.15.5",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-query": "^1.1.2",
+    "@types/react-router-dom": "^5.1.4",
+    "@umijs/hooks": "^1.9.2",
+    "antd": "^4.1.5",
+    "babel-plugin-import": "^1.13.0",
+    "bizcharts": "3.5.9",
+    "cross-env": "^7.0.2",
+    "customize-cra": "^0.9.1",
+    "dayjs": "^1.8.25",
+    "fp-ts": "^2.5.4",
+    "history": "^4.10.1",
+    "immer": "^6.0.5",
+    "io-ts": "^2.2.2",
+    "io-ts-promise": "^2.0.2",
+    "io-ts-types": "^0.5.6",
+    "less": "^3.11.1",
+    "less-loader": "5.0.0",
+    "monocle-ts": "^2.1.0",
+    "react": "^16.13.1",
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.13.1",
+    "react-query": "^1.2.9",
+    "react-query-devtools": "^1.1.5",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "typescript": "~3.7.2"
+  },
+  "devDependencies": {
+    "@sentry/cli": "^1.52.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "source-map-explorer": "^2.4.2",
+    "standard-version": "^8.0.0"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "cross-env REACT_APP_NAME=$npm_package_name REACT_APP_VERSION=$npm_package_version react-app-rewired start",
+    "build": "cross-env REACT_APP_NAME=$npm_package_name REACT_APP_VERSION=$npm_package_version react-app-rewired build",
+    "release": "standard-version && react-app-rewired build && node scripts/sentry.js",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .ts,.tsx src",
+    "format": "prettier --write src/**/*.{ts,tsx,json,css,md}"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,json,css}": [
+      "prettier --write"
+    ]
+  }
+}
